@@ -1,4 +1,4 @@
-# resumemaker<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -14,7 +14,7 @@
     input, textarea { width: 100%; margin-bottom: 1rem; padding: 0.7rem; border: 1px solid #ccc; border-radius: 5px; }
     label { font-weight: bold; display: block; margin-top: 1rem; }
     #downloadBtn { padding: 0.7rem 1.2rem; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    .resume-box { padding: 1rem; border: 1px solid #ddd; }
+    .resume-box { padding: 1rem; border: 1px solid #ddd; border-bottom: 3px solid #007bff; }
   </style>
 </head>
 <body>
@@ -51,6 +51,9 @@
       <label>What are your areas of interest (e.g., animation, software dev)?</label>
       <textarea id="interests" rows="2"></textarea>
 
+      <label>List any certifications or achievements (optional)</label>
+      <textarea id="achievements" rows="3"></textarea>
+
       <button type="submit">Generate Resume</button>
     </form>
 
@@ -81,6 +84,7 @@
       const skills = document.getElementById('skills').value;
       const languages = document.getElementById('languages').value;
       const interests = document.getElementById('interests').value;
+      const achievements = document.getElementById('achievements').value;
 
       resumeContent.innerHTML = `
         <h2>${name}</h2>
@@ -104,6 +108,9 @@
 
         <h3>Interests</h3>
         <p>${interests.replace(/\n/g, '<br>')}</p>
+
+        <h3>Certifications / Achievements</h3>
+        <p>${achievements.replace(/\n/g, '<br>')}</p>
 
         <h3>Declaration</h3>
         <p>I hereby declare that all the information mentioned above is true to the best of my knowledge.</p>
